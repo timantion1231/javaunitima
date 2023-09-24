@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -85,6 +86,24 @@ public class Main {
     }
 
     static void ex3() {
+        Scanner in  = new Scanner(System.in);
+        String s = in.nextLine();
+        HashMap<Character, Integer> mapa1 = Bi.b(s);
+        HashMap<Integer, Character> mapa2 = Bi.sortedValue(mapa1);
+
+        for(Map.Entry<Character, Integer> item: mapa1.entrySet()){
+            System.out.println(item.getKey()+" "+item.getValue()+"\n");
+        }
+
+        mapa1 = Bi.sortedKey(mapa1);
+
+        for(Map.Entry<Character, Integer> item: mapa1.entrySet()){
+            System.out.println(item.getKey()+" "+item.getValue()+"\n");
+        }
+
+        for(Map.Entry<Integer, Character> item: mapa2.entrySet()){
+            System.out.println(item.getValue()+" "+item.getKey()+"\n");
+        }
 
     }
 

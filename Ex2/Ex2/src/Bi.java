@@ -5,8 +5,8 @@ import java.util.TreeMap;
 
 public class Bi {
 
-    public static Map b(String s) {
-        Map<Character, Integer> sMap = new HashMap<>();
+    public static HashMap<Character, Integer> b(String s) {
+        HashMap<Character, Integer> sMap = new HashMap<>();
 
         for (int i = 0; i < s.length(); i++) {
             if(!sMap.containsKey(s.charAt(i))){
@@ -21,20 +21,26 @@ public class Bi {
         return sMap;
     }
 
-    public static Map sortedKey(Map<Character, Integer>mapa){
+    public static HashMap<Character, Integer> sortedKey(HashMap<Character, Integer>mapa){
         SortedMap<Character, Integer> smk = new TreeMap<>();
+
         for(Map.Entry<Character, Integer> item : mapa.entrySet()){
             smk.put(item.getKey(), item.getValue());
         }
-        return smk;
+
+        mapa.clear();
+        mapa.putAll(smk);
+        return mapa;
     }
 
-    public static Map sortedValue(Map<Character, Integer>mapa) {
+    public static HashMap<Integer, Character> sortedValue(Map<Character, Integer>mapa) {
         SortedMap<Integer, Character> smv = new TreeMap<>();
         for(Map.Entry<Character, Integer> item : mapa.entrySet()){
             smv.put(item.getValue(), item.getKey());
         }
-        return smv;
+
+        mapa.clear();
+        return new HashMap<>(smv);
     }
 
 
