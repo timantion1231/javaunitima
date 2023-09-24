@@ -11,6 +11,18 @@ public class Student {
         return this.bDate;
     }
 
+    String getFIO(){
+        return this.sName + " "+ this.studentId+" "+faName;
+    }
+
+    double getGPA(){
+        return this.GPA;
+    }
+
+    void setGPA(int GPA){
+        this.GPA = GPA;
+    }
+
     void setStudentId(int Id) {
         this.studentId = Id;
     }

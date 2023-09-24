@@ -62,7 +62,26 @@ public class Main {
     }
 
     static void ex2() {
+        ArrayDeque<Student> students = new ArrayDeque<>();
+        int sucsessAdds = 0;
+        int lid = 1234;
+        if (students.offer(new Student(lid++, "Kavalskyy", "matronovich",
+                LocalDate.of(2001, 5, 5), 3.5))) sucsessAdds++;
+        if (students.offer(new Student(lid++, "Skonkaya", "Petrovna",
+                LocalDate.of(2001, 3, 2), 4.5))) sucsessAdds++;
+        if (students.offer(new Student(lid++, "Shapkov", "Mikevich",
+                LocalDate.of(2000, 8, 1), 3.7))) sucsessAdds++;
+        if (students.offer(new Student(lid, "Pupkin", "Vasevich",
+                LocalDate.of(2002, 6, 4), 4.8))) sucsessAdds++;
 
+        if (sucsessAdds == students.size()) System.out.println("All students added");
+        else System.out.println("Problemas");
+
+        while (!students.isEmpty()) {
+            System.out.println(students.poll().print());
+        }
+
+        System.out.println("All students removed successfully");
     }
 
     static void ex3() {
