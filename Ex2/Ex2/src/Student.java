@@ -44,4 +44,4 @@ public class Student {
         return "id: " + studentId + "; surname: " + sName + "; father name: " + faName + "; birth date: " + bDate.toString()
                 + "; GPA: " + GPA + "\n";
     }
-}
+}//comparable интерфейс

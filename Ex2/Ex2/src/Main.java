@@ -10,7 +10,7 @@ public class Main {
         int programNum = -1;
         String inputLine = "";
         while (programNum != 0) {
-            System.out.println("Введите номер программы: 1, 2, 3\n0: Выход");
+            System.out.println("\nВведите номер программы: 1, 2, 3\n0: Выход");
             inputLine = in.nextLine();
             if (chkNum(inputLine)) programNum = Integer.parseInt(inputLine);
             else {
@@ -97,13 +97,19 @@ public class Main {
 
         mapa1 = Bi.sortedKey(mapa1);
 
-        for(Map.Entry<Character, Integer> item: mapa1.entrySet()){
-            System.out.println(item.getKey()+" "+item.getValue()+"\n");
+        if(mapa1.isEmpty()) System.out.println("EMPTY");
+        else {
+            for (Map.Entry<Character, Integer> item : mapa1.entrySet()) {
+                System.out.println(item.getKey() + " " + item.getValue() + "\n");
+            }
         }
+        System.out.println("test");
 
         for(Map.Entry<Integer, Character> item: mapa2.entrySet()){
-            System.out.println(item.getValue()+" "+item.getKey()+"\n");
+            System.out.print(item.getValue()+" "+item.getKey()+" ");
         }
+
+        System.out.println("size: "+mapa2.size());
 
     }
 
