@@ -94,7 +94,7 @@ public class Main {
         for(Map.Entry<Character, Integer> item: mapa1.entrySet()){
             System.out.println(item.getKey()+" "+item.getValue()+"\n");
         }
-
+//проблема в классе Bi
         mapa1 = Bi.sortedKey(mapa1);
 
         if(mapa1.isEmpty()) System.out.println("EMPTY");
