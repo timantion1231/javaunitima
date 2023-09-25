@@ -17,7 +17,7 @@ public class Bi {
         return sMap;
     }
 
-    public static HashMap<Character, Integer> sortedKey(HashMap<Character, Integer> mapa) {
+    public static HashMap<Character, Integer> sortedKey(HashMap<Character, Integer> mapa) {//Возвращает пустой Map
 
         SortedMap<Character, Integer> smk = new TreeMap<>();
         smk.putAll(mapa);
@@ -25,7 +25,7 @@ public class Bi {
         return new HashMap<>(smk);
     }
 
-    public static HashMap<Integer, Character> sortedValue(Map<Character, Integer> mapa) {
+    public static HashMap<Integer, Character> sortedValue(Map<Character, Integer> mapa) {//"забывает" какие-то из символов
         SortedMap<Integer, Character> smv = new TreeMap<>();
         for (Map.Entry<Character, Integer> item : mapa.entrySet()) {
             smv.put(item.getValue(), item.getKey());
