@@ -9,7 +9,6 @@ public class MyInt implements Comparable<MyInt>{
         this.anInt = anInt;
     }
 
-
     public int compareTo(MyInt o) {
         return o.getAnInt();
     }

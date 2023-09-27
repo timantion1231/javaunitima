@@ -1,7 +1,7 @@
 public class MyChar implements Comparable<MyChar>{
 
-    private Character c;
-    private int charInt;
+    private final Character c;
+    private final int charInt;
 
     public int getCharInt() {
         return charInt;

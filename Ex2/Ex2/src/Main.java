@@ -1,4 +1,5 @@
-import java.awt.*;
+//import java.awt.*;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -8,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int programNum = -1;
-        String inputLine = "";
+        String inputLine;
         while (programNum != 0) {
             System.out.println("\nВведите номер программы: 1, 2, 3\n0: Выход");
             inputLine = in.nextLine();
@@ -26,9 +27,9 @@ public class Main {
     }
 
     static void ex1() {
-        ArrayList<Student> students = new ArrayList<Student>();
+        ArrayList<Student> students = new ArrayList<>();
         int lid = 1234;
-        TreeMap<LocalDate, Integer> dateMap = new TreeMap<LocalDate, Integer>();
+        TreeMap<LocalDate, Integer> dateMap = new TreeMap<>();
         Map<Integer, Student> studMap = new HashMap<>();
         students.add(new Student(lid++, "Kavalskyy", "matronovich",
                 LocalDate.of(2001, 5, 5), 3.5));
@@ -88,12 +89,11 @@ public class Main {
     static void ex3() {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();
-        HashMap<MyChar, Integer> mapa1 = Bi.b(s);
-        HashMap<Integer, MyChar> mapa2 = Bi.sortedValue(mapa1);
-
-        mapa1 = Bi.sortedKey(mapa1);
+        HashMap<MyChar, Integer> mapa1 = Bi.sortedKey(Bi.b(s));
+        HashMap<MyChar, Integer> mapa2 = Bi.sortedValue(mapa1);
 
         System.out.println("Sort by key:\n");
+
         if (mapa1.isEmpty()) System.out.println("mapa1 is EMPTY");
         else {
             for (Map.Entry<MyChar, Integer> item : mapa1.entrySet()) {
@@ -105,19 +105,21 @@ public class Main {
 
         if (mapa2.isEmpty()) System.out.println("mapa2 is empty");
         else {
-            for (Map.Entry<Integer, MyChar> item : mapa2.entrySet()) {
-                System.out.print(item.getValue().getC() + " " + item.getKey() + "\n");
+            for (Map.Entry<MyChar, Integer> item : mapa2.entrySet()) {
+                System.out.println(item.getKey().getC() + " " + item.getValue());
             }
 
         }
     }
 
     public static boolean chkNum(String str) {
+        boolean b;
         try {
             Integer.parseInt(str);
-            return true;
+            b = true;
         } catch (Exception ex) {
+            b = false;
         }
-        return false;
+        return b;
     }
 }
