@@ -86,31 +86,30 @@ public class Main {
     }
 
     static void ex3() {
-        Scanner in  = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         String s = in.nextLine();
-        HashMap<Character, Integer> mapa1 = Bi.b(s);
-        HashMap<Integer, Character> mapa2 = Bi.sortedValue(mapa1);
+        HashMap<MyChar, Integer> mapa1 = Bi.b(s);
+        HashMap<Integer, MyChar> mapa2 = Bi.sortedValue(mapa1);
 
-        for(Map.Entry<Character, Integer> item: mapa1.entrySet()){
-            System.out.println(item.getKey()+" "+item.getValue()+"\n");
-        }
-//проблема в классе Bi
         mapa1 = Bi.sortedKey(mapa1);
 
-        if(mapa1.isEmpty()) System.out.println("EMPTY");
+        System.out.println("Sort by key:\n");
+        if (mapa1.isEmpty()) System.out.println("mapa1 is EMPTY");
         else {
-            for (Map.Entry<Character, Integer> item : mapa1.entrySet()) {
-                System.out.println(item.getKey() + " " + item.getValue() + "\n");
+            for (Map.Entry<MyChar, Integer> item : mapa1.entrySet()) {
+                System.out.print(item.getKey().getC() + " " + item.getValue() + "\n");
             }
         }
-        System.out.println("test");
 
-        for(Map.Entry<Integer, Character> item: mapa2.entrySet()){
-            System.out.print(item.getValue()+" "+item.getKey()+" ");
+        System.out.println("Sort by value");
+
+        if (mapa2.isEmpty()) System.out.println("mapa2 is empty");
+        else {
+            for (Map.Entry<Integer, MyChar> item : mapa2.entrySet()) {
+                System.out.print(item.getValue().getC() + " " + item.getKey() + "\n");
+            }
+
         }
-
-        System.out.println("size: "+mapa2.size());
-
     }
 
     public static boolean chkNum(String str) {

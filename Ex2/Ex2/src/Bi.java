@@ -2,36 +2,40 @@ import java.util.*;
 
 public class Bi {
 
-    public static HashMap<Character, Integer> b(String s) {
-        HashMap<Character, Integer> sMap = new HashMap<>();
+    public static HashMap<MyChar, Integer> b(String s) {
+        HashMap<MyChar, Integer> sMap = new HashMap<>();
+        HashMap<Character, Integer> checkMap = new HashMap<>();
 
+        int v = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (!sMap.containsKey(s.charAt(i))) {
-                sMap.put(s.charAt(i), 1);
+            if (!checkMap.containsKey(s.charAt(i))) {
+                checkMap.put(s.charAt(i), 1);
             } else {
-                int v = sMap.get(s.charAt(i));
-                sMap.put(s.charAt(i), v + 1);
+                v= checkMap.get(s.charAt(i));
+                checkMap.put(s.charAt(i), v+1);
             }
         }
 
+        for(Map.Entry<Character, Integer> item: checkMap.entrySet()){
+            sMap.put(new MyChar(item.getKey()), item.getValue());
+        }
         return sMap;
     }
 
-    public static HashMap<Character, Integer> sortedKey(HashMap<Character, Integer> mapa) {//Возвращает пустой Map
 
-        SortedMap<Character, Integer> smk = new TreeMap<>();
-        smk.putAll(mapa);
-
+    public static HashMap<MyChar, Integer> sortedKey(HashMap<MyChar, Integer> mapa) {
+        SortedMap<MyChar, Integer> smk = new TreeMap<>(mapa);
         return new HashMap<>(smk);
     }
 
-    public static HashMap<Integer, Character> sortedValue(Map<Character, Integer> mapa) {//"забывает" какие-то из символов
-        SortedMap<Integer, Character> smv = new TreeMap<>();
-        for (Map.Entry<Character, Integer> item : mapa.entrySet()) {
+    public static HashMap<Integer, MyChar> sortedValue(Map<MyChar, Integer> mapa) {
+
+        SortedMap<Integer, MyChar> smv = new TreeMap<>();
+
+        for (Map.Entry<MyChar, Integer> item : mapa.entrySet()) {
             smv.put(item.getValue(), item.getKey());
         }
 
-        mapa.clear();
         return new HashMap<>(smv);
     }
 
