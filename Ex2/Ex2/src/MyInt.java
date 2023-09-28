@@ -1,15 +1,15 @@
 public class MyInt implements Comparable<MyInt>{
-    private int anInt;
+    private Integer val;
 
-    public int getAnInt() {
-        return anInt;
+    public int getVal() {
+        return val;
     }
 
-    public MyInt(int anInt){
-        this.anInt = anInt;
+    public MyInt(int value){
+        this.val = value;
     }
 
     public int compareTo(MyInt o) {
-        return o.getAnInt();
+        return val.compareTo(o.getVal());
     }
 }

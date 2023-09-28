@@ -1,7 +1,7 @@
 public class MyChar implements Comparable<MyChar>{
 
     private final Character c;
-    private final int charInt;
+    private final Integer charInt;
 
     public int getCharInt() {
         return charInt;
@@ -17,6 +17,6 @@ public class MyChar implements Comparable<MyChar>{
     }
 
     public int compareTo(MyChar cavo) {
-        return cavo.getCharInt();
+        return charInt.compareTo(cavo.getCharInt());
     }
 }

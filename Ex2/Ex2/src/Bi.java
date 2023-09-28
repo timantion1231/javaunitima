@@ -30,36 +30,16 @@ public class Bi {
 
     public static HashMap<MyChar, Integer> sortedValue(HashMap<MyChar, Integer> mapa) {
 
-        List<MyChar> charList = new ArrayList<>();
-        List<Integer> intList = new ArrayList<>();
+        SortedMap<MyInt, MyChar> sm = new TreeMap<>();
 
-        for (Map.Entry<MyChar, Integer> item : mapa.entrySet()) {
-            charList.add(item.getKey());
-            intList.add(item.getValue());
+        for(Map.Entry<MyChar, Integer> item: mapa.entrySet()){
+            sm.put(new MyInt(item.getValue()), item.getKey());
         }
-
-        int n = charList.size()-1;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n - i; j++) {
-                if (intList.get(j) > intList.get(j + 1)) {
-                    int intTemp = intList.get(j);
-                    MyChar charTemp = charList.get(j);
-
-                    intList.set(j, intList.get(j + 1));
-                    charList.set(j, charList.get(j + 1));
-
-                    intList.set(j + 1, intTemp);
-                    charList.set(j + 1, charTemp);
-                }
-            }
-        }
-
         mapa.clear();
 
-        for(int i = 0; i< intList.size();i++){
-            mapa.put(charList.get(i), intList.get(i));
+        for(Map.Entry<MyInt, MyChar>item: sm.entrySet()){
+            mapa.put(item.getValue(), item.getKey().getVal());
         }
-        return mapa;
+      return mapa;
     }
 }
