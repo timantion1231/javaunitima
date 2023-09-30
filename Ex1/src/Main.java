@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int programNum = -1;
-        String inputLine = "";
+        String inputLine;
         while (programNum != 0) {
             System.out.println("Введите номер программы:\n1: Сотрудники\n2: Векторы\n0: Выход");
             inputLine = in.nextLine();
@@ -26,8 +25,8 @@ public class Main {
     public static void employee() {
         Programmer tom = new Programmer("Tom", 450000);
         Designer bob = new Designer("Bob", 250000);
-        ArrayList<String> tomFrams = new ArrayList<String>();
-        ArrayList<String> tomlangs = new ArrayList<String>();
+        ArrayList<String> tomFrams = new ArrayList<>();
+        ArrayList<String> tomlangs = new ArrayList<>();
 
         tomFrams.add("django");
         tomFrams.add("react");
@@ -54,7 +53,7 @@ public class Main {
 
         Vector3D v1;
         Vector3D v2;
-
+        Vector3D[] vector3DS = new Vector3D[10];
         System.out.println("Ввести координаты вручную? y/n");
 
         if (in.nextLine().equalsIgnoreCase("y")) {
@@ -89,6 +88,12 @@ public class Main {
         System.out.println("Сумма:\n" + Arrays.toString(Vector3D.sumVector(v1, v2).getVectorCords()));
 
         System.out.println("Разница:\n" + Arrays.toString(Vector3D.differenceVector(v1, v2).getVectorCords()));
+
+        System.out.println("Рандомные 10 векторов");
+        for(int i=0; i<10; i++){
+            vector3DS[i] = Vector3D.genRandomVector();
+            System.out.println(Arrays.toString(vector3DS[i].getVectorCords()));
+        }
 
        // System.out.println("Random vectors");
     }

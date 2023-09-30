@@ -1,9 +1,8 @@
-public class Employee extends AbstrEmp {
+public abstract class Employee  {
     String name;
     int payment;
 
     public Employee(String name, int payment){
-        super(name, payment);
         this.name = name;
         this.payment = payment;
     }

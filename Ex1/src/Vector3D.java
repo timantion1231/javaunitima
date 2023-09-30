@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Vector3D {
+public class Vector3D implements VectorInterface{
 
     private double x;
     private double y;
@@ -12,6 +12,18 @@ public class Vector3D {
         this.y = y;
         this.z = z;
 
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
     }
 
     public double vectorLength() {
