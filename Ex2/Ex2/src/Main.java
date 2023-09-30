@@ -89,15 +89,16 @@ public class Main {
     static void ex3() {
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();
-        HashMap<MyChar, Integer> mapa1 = Bi.sortedKey(Bi.b(s));
-        HashMap<MyChar, Integer> mapa2 = Bi.sortedValue(mapa1);
+        LinkedHashMap<Character, Integer> mapa1 = Bi.sortedKey(Bi.b(s));
+        LinkedHashMap<Character, Integer> mapa2 = Bi.sortedValue(mapa1);
 
         System.out.println("Sort by key:\n");
 
         if (mapa1.isEmpty()) System.out.println("mapa1 is EMPTY");
         else {
-            for (Map.Entry<MyChar, Integer> item : mapa1.entrySet()) {
-                System.out.print(item.getKey().getC() + " " + item.getValue() + "\n");
+            for (Map.Entry<Character, Integer> item : mapa1.entrySet()) {
+                System.out.print(item.getKey() + " " + item.getValue() + "\n");
+               // System.out.println("test"+item.getKey().getCharInt());
             }
         }
 
@@ -105,8 +106,8 @@ public class Main {
 
         if (mapa2.isEmpty()) System.out.println("mapa2 is empty");
         else {
-            for (Map.Entry<MyChar, Integer> item : mapa2.entrySet()) {
-                System.out.println(item.getKey().getC() + " " + item.getValue());
+            for (Map.Entry<Character, Integer> item : mapa2.entrySet()) {
+                System.out.println(item.getKey() + " " + item.getValue());
             }
 
         }
